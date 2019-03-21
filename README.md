@@ -14,6 +14,9 @@ reader.readAll([...files], callback) -> number
 
 Given an array of files and a callback error handler function, reads the file name and contents of each file. The callback function takes (err, data). If there is an error, the error handler will run.
 
+Promises done
+Async to do
+
 ### Setup
 .env requirements
 npm i - install dependencies
