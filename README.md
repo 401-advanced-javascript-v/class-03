@@ -2,7 +2,7 @@
 ### Links and Resources
 
 * repo(https://github.com/401-advanced-javascript-v/class-03/pull/2)
-* travis(https://travis-ci.com/401-advanced-javascript-v/class-03.svg?branch=working)
+* travis([![Build Status](https://travis-ci.com/401-advanced-javascript-v/class-03.svg?branch=working)](https://travis-ci.com/401-advanced-javascript-v/class-03))
 
 ### Documentation
 jsdoc
