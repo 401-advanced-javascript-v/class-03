@@ -1,7 +1,12 @@
 'use strict';
 
 const fs = require('fs');
+const util = require('util');
 let contents = [];
+
+
+// const readFile = util.promisify(fs.readFile);
+const readFile = util.promisify(fs.readFile);
 /**
  * Our module exports a single function that expects an array of files
  * @type {function(*=)}
@@ -20,10 +25,10 @@ module.exports = exports = (files, callback) => {
  * @param file
  * @param callback
  */
-const readOne = (file, callback) => {
+const readOne = (file, callback)=>{
   fs.readFile( file, (err, data) => {
     if(err) { callback(err); }
-    else { callback(undefined, data); }
+    else { callback(null, data); }
   });
 };
 
@@ -34,34 +39,19 @@ const readOne = (file, callback) => {
  */
 const readAll = (paths, callback) => {
   let contents = [];
-  readOne(paths[0], (err, data) => {
-    if (err) {
-      callback(err);
-    }
-    else {
+  readFile(paths[0])
+    .then(data => {
       contents.push(data.toString().trim());
-    } 
-  });
-
-  
-  readOne(paths[1], (err, data) => {
-    if (err) {
-      callback(err);
-    }
-    else {
+      return readFile(paths[1]);
+    })
+    .then( data => {
       contents.push(data.toString().trim());
-    }
-  });
-
-
-  readOne(paths[2], (err, data) => {
-    if (err) {
-      callback(err);
-    }
-    else {
+      return readFile(paths[2]);
+    })
+    .then( data => {
       contents.push(data.toString().trim());
-    }  
-  });
-  callback(null, contents);
+      callback(null, contents);
+    })
+    .catch( error => callback(error));
 };
-
+  
