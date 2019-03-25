@@ -1,7 +1,9 @@
 ### Author: Vanessa
 ### Links and Resources
-repo(https://github.com/401-advanced-javascript-v/class-03)
-travis(https://travis-ci.com/401-advanced-javascript-v/class-03/builds/105250109)
+
+* repo(https://github.com/401-advanced-javascript-v/class-03/pull/2)
+* travis(https://travis-ci.com/401-advanced-javascript-v/class-03.svg?branch=master)
+
 ### Documentation
 jsdoc
 ### Modules - Part 1
@@ -14,8 +16,7 @@ reader.readAll([...files], callback) -> number
 
 Given an array of files and a callback error handler function, reads the file name and contents of each file. The callback function takes (err, data). If there is an error, the error handler will run.
 
-Promises done
-Async to do
+Rewrite with Promises done
 
 ### Setup
 .env requirements
